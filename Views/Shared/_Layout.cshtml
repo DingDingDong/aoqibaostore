@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiftPay Store</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/"></a>
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "Home"? "active" : "")"><a href="/">首页</a></li>
+                        <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "Product" ? "active" : "")"><a href="/Product/">产品</a></li>
+                        <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "About" ? "active" : "")"><a href="/About/">关于我们</a></li>
+                        <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "Contact" ? "active" : "")"><a href="/Contact/">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div id="sub-footer" class="clearfix">
+                <div class="footer-left-content">
+                    <div class="footer-nav accent-text" role="navigation">
+                        <a title="正品保证" href="/">正品保证</a>
+                        <a title="支付与配送" href="/">支付与配送</a>
+                        <a title="售后服务" href="/">售后服务</a>
+                        <a title="联系我们" href="/">联系我们</a>
+                        <a title="Privacy" href="/">Privacy</a>
+                    </div>
+                    <p id="shopify-attr" class="accent-text" role="contentinfo">Copyright © 2015 澳琪宝. </p>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

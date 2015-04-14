@@ -1,0 +1,209 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Header*/
+.navbar-brand {
+    background: url("http://giftpay.com//images/logo.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 27px;
+    margin-top: 16px;
+    padding: 0;
+    width: 111px;
+}
+
+.navbar-collapse {
+    float: left;
+}
+
+.navbar-header {
+ width: 150px;
+}
+
+
+/* Footer*/
+
+.footer-left-content {
+    float: left;
+    margin: 0;
+    width:100%;
+}
+.footer-nav {
+    line-height: 14px;
+    margin-bottom: 14px;
+}
+
+
+.footer-nav a, #shopify-attr a {
+    color: #333333;
+}
+.footer-nav a {
+    display: inline-block;
+    font-size: 13px;
+    padding-right: 10px;
+}
+
+
+#shopify-attr {
+    color: #333333;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 0;
+    float:right;
+}
+
+/*Home Page*/
+.banner {
+ margin-top:100px;
+}
+
+#products-column.full-width {
+    float: none;
+    width: auto;
+}
+#products-column {
+    float: right;
+    padding-top: 38px;
+    width: 422px;
+}
+
+#products-column-header {
+    margin-bottom: 27px;
+    overflow: hidden;
+}
+
+#products-column-header a {
+    float: right;
+    font-size: 12px;
+    margin-top: 7px;
+}
+.accent-text {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-style: italic;
+}
+
+#coll-product-list, #collection-list {
+    list-style-type: none;
+    margin: 0 0 0 -40px;
+    padding: 0;
+}
+
+.four-per-row {
+    width: 191px;
+    height:246px;
+}
+.four-per-row, .three-per-row {
+    display: block;
+    float: left;
+    margin: 0 0 36px 40px;
+    width: 191px;
+}
+
+.four-per-row .coll-image-wrap {
+    height: 191px;
+    width: 191px;
+}
+.four-per-row .coll-image-wrap, .three-per-row .coll-image-wrap {
+    background-color: #ffffff;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+#coll-product-list, #collection-list {
+    list-style-type: none;
+}
+
+.four-per-row .coll-prod-caption {
+    margin-top: 13px;
+}
+
+.four-per-row .coll-prod-meta.no-medallion {
+    text-align: center;
+}
+.four-per-row .coll-prod-meta {
+    font-size: 13px;
+}
+
+.four-per-row .coll-prod-title {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+a {
+    color: #677e87;
+    text-decoration: none;
+}
+
+.collection-list-product-count {
+    line-height: 21px;
+    margin: 0;
+}
+
+.four-per-row .coll-image-wrap img {
+    max-width: 191px;
+    height:191px;
+}
+
+#welcome-text {
+    margin-bottom: 40px;
+}
+
+#fp-welcome-title {
+    margin-bottom: 20px;
+}
+.widget-title {
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 19px;
+    margin: 0;
+    vertical-align: top;
+}
+
+.rte {
+    color: #333333;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+
+/* Product */
+.greybox {
+    overflow: hidden;
+    text-align: left;
+}
+.giftcard a, .greybox {
+    background: none repeat scroll 0 0 #f5f5f5;
+    color: #000;
+    display: block;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: background 0.3s ease 0s;
+}
+
+ol, ul {
+    list-style: outside none none;
+}
+
+.product-sidebar li a {
+    display: block;
+    padding: 0 0 15px;
+}
+
+.greybox {
+    text-align: left;
+}
