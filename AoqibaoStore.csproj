@@ -169,6 +169,10 @@
     <Content Include="Content\images\Category\category2.png" />
     <Content Include="Content\images\Category\category3.png" />
     <Content Include="Content\images\Category\category4.jpg" />
+    <Content Include="Content\images\Product\a2two.png" />
+    <Content Include="Content\images\Product\detox.jpg" />
+    <Content Include="Content\images\Product\kidsfruity.png" />
+    <Content Include="Content\images\Product\moisturecream.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
