@@ -1,0 +1,41 @@
+﻿@model AoqibaoStore.Models.Product
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<div class="container">
+    <h2>@Model.name</h2>
+    <div id="products">
+        <div class="row">
+            <div class="col-md-2">
+                @Html.Action("Menu", "Nav")
+            </div>
+
+            <div class="col-md-10 clearfix">
+              <div id="product-content" class="clearfix">
+                  <ul id="product-details">
+                      <li id="product-title">
+                        <h1 itemprop="name">@Model.name</h1>
+                      </li>
+                      <li id="product-prices" class="smooth">
+                          <span class="product-price"> ¥@Model.unitPrice</span>
+                      </li>
+                      <li id="product-description" class="below">
+                          <h2>Description</h2>
+                          <div id="full_description" class="rte" itemprop="description">
+                              @Html.Raw(@Model.longDesc)
+                          </div>
+                      </li>
+                  </ul>
+
+                  <div id="product-photos">
+                      <div id="product-photo-container">
+                          <img alt="@Model.name" src="/Content/images/Product/@Model.imgUrl"></div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+

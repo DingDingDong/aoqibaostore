@@ -1,7 +1,44 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "联系我们";
 }
+<div id="container">
+    <div role="main" id="content" class="clearfix">
+        <div class="clearfix page-container">
+            <div id="contact-form-wrapper">
+                <h1 class="page-title">联系我们</h1>
 
-<h2>Index</h2>
+                <h4><span style="color: #000000;">这里我们承诺，澳琪宝的所有商业行为均在澳大利亚严格的法律体系内运行。请您无须担心我们出售的产品或提供的服务品质。</span></h4>
+                <h4><span style="color: #000000;">我们会尽快回复您。</span></h4>
+                <form method="post" class="contact-form" action="/contact/Complete" accept-charset="UTF-8">
+                    <input type="hidden" value="contact" name="form_type">
 
+                    <p>
+                        <label>您的名字:</label>
+                        <input type="text" value="" class="styled-input hint" placeholder="" name="name" id="contactFormName">
+                    </p>
+                    <p>
+                        <label>邮箱:</label>
+                        <input type="email" value="" class="styled-input hint" placeholder="" name="email" id="contactFormEmail" required="required">
+                    </p>
+                    <p>
+                        <label>联系电话:</label>
+                        <input type="tel" value="" class="styled-input hint" placeholder="" name="phone" id="contactFormTelephone">
+                    </p>
+                    <p>
+                        <label>内容:</label>
+                        <textarea class="styled-input hint" placeholder="" name="body" id="contactFormMessage" cols="60" rows="10" required="required"></textarea>
+                    </p>
+                    <p>
+                        <input type="submit" value="Send" id="contactFormSubmit" class="btn styled-submit">
+                    </p>
+
+
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

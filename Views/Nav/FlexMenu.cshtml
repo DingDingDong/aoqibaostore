@@ -1,0 +1,26 @@
+﻿@model IEnumerable<string>
+
+<div class="greybox">
+    <ul class="product-sidebar">
+        <li>
+            <a href="/">所有产品</a>
+        </li>
+        @foreach (var p in Model)
+        {
+            <li>
+
+            @Html.RouteLink(p, new
+           {
+               controller = "Product",
+               action = "",
+               cateName = p,
+           }, new {
+
+               @class = (p == ViewBag.SelectedCategory ? " btn-primary" : "")
+           }
+           )
+            </li>
+        }
+
+    </ul>
+</div>

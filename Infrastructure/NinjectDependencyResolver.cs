@@ -42,6 +42,11 @@ namespace AoqibaoStore.Infrastructure
             //kernel.Bind<ICategoryRepository>().ToConstant(mock.Object);
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
             kernel.Bind<ICategoryRepository>().To<EFCategoryRepository>();
+
+            EmailSettings emailSettings = new EmailSettings { };
+
+            kernel.Bind<IContactProcessor>().To<EmailContactProcessor>().WithConstructorArgument("settings", emailSettings
+                );
             
         }
     }

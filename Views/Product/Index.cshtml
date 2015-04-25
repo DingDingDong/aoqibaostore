@@ -1,5 +1,4 @@
-﻿@using AoqibaoStore.Models;
-
+﻿@model AoqibaoStore.Models.ProductListViewModel
 
 
 @{
@@ -10,26 +9,38 @@
     <h2>所有产品</h2>
     <div id="products">
         <div class="row">
-            <div class="col-md-3">
-                <div class="greybox">
-                    <ul class="product-sidebar">
-                        <li>
-                            <a href="/">所有产品</a>
-                        </li>
-                        @foreach (Category p in ViewData["Categories"] as List<Category>)
-                        {
-                            <li>
-                                <a href="/">@p.name</a>
-                            </li>
-                        }
+            <div class="col-md-2">
+                @Html.Action("Menu", "Nav")
+            </div>
 
-                    </ul>
+            <div class="col-md-10 clearfix">
+                <ul>
+                    @foreach (var p in Model.Products)
+                    {
+                       <li class="four-per-row clearfix" style="height:291px;">
+                           <div class="coll-image-wrap">
+                               <a href="../Product/detail/@p.Id">
+                                   <img alt="@p.name" src="../Content/images/Product/@p.imgUrl" style="height:191px;" />
+                               </a>
+                           </div>
+                           <div class="coll-prod-caption">
+                              <div class="coll-prod-meta">
+                                  <a class="coll-prod-meta" href="../Product/detail/@p.Id">
+                                      @p.name
+                                  </a>
+                                  <p class="coll-prod-price accent-text">
+                                      ¥ @p.unitPrice
+                                  </p>
+                              </div>
+                           </div>
+                       </li>
+                    }
+                </ul>
+            </div>
+            <br />
+                <div class="btn-group pull-right">
+                    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, category = Model.CurrentCategory }))
                 </div>
-            </div>
-
-            <div class="col-md-9">
-
-            </div>
 
 
         </div>

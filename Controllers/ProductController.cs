@@ -12,44 +12,62 @@ namespace AoqibaoStore.Controllers
     [RoutePrefix("product")]
     public class ProductController : Controller
     {
-        private ICategoryRepository cateRepository;
         private IProductRepository productRepository;
+        private ICategoryRepository categoryRepository;
+
+        public int PageSize = 2;
+
+        //private List<Product> productList;
         //
         // GET: /Product/
 
-        public ProductController(ICategoryRepository cateRepository, IProductRepository productRepository)
+        public ProductController(IProductRepository productRepository,ICategoryRepository categoryRepository)
         {
-            this.cateRepository = cateRepository;
             this.productRepository = productRepository;
+            this.categoryRepository = categoryRepository;
         }
 
         // GET: Product
-        // [Route("product")]
-        public ViewResult Index()
+        public ViewResult Index(string cateName, int page =1)
         {
-       
 
-            ViewData["Categories"] = cateRepository.Categories.ToList();
+         //   ViewData["Products"] = productRepository.Products.ToList();
 
-            ViewData["Products"] = productRepository.Products.ToList();
-
-            return View();
+            Category selectedCategory = categoryRepository.Categories.Where(c => c.name == cateName).FirstOrDefault();
+            
+            ProductListViewModel model = new ProductListViewModel
+            {
+                Products = productRepository.Products
+                .Where(p => cateName == null || p.cateId == selectedCategory.Id)
+                .OrderBy(p => p.Id)
+                .Skip((page - 1) * PageSize)
+                .Take(PageSize), PagingInfo = new PagingInfo{
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = cateName == null ? productRepository.Products.Count() : productRepository.Products.Where(e => e.cateId == selectedCategory.Id).Count()
+                },
+                CurrentCategory = cateName
+            };
+            
+            
+            return View(model);
         }
 
-        [Route("{category}")]
-        public string showCategory(string category)
+        //[Route("{cateName}")]
+        //public ViewResult showCategory(string cateName)
+        //{
+        //    //return the products in  category
+        //    Category selectedCategory = categoryRepository.Categories.Where(c => c.name == cateName).First();
+        //    ViewData["Products"] = productRepository.Products.Where(p => p.cateId == selectedCategory.Id).ToList();
+
+        //    return View("Index");
+        //}
+
+        [Route("detail/{id:int}")]
+        public ViewResult Details(int id)
         {
-            //return the products in  category
-
-            return category;
-        }
-
-        [Route("{category}/{id:int}")]
-        public string details(string category, int id)
-        {
-
-            return "individual product";
-
+            Product selectedProduct = productRepository.Products.Where(p => p.Id == id).FirstOrDefault();
+            return View(selectedProduct);
         }
 
     }
