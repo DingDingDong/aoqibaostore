@@ -70,5 +70,18 @@ namespace AoqibaoStore.Controllers
             return View(selectedProduct);
         }
 
+        [Route("GetImage/{id:int}")]
+        public FileContentResult GetImage(int id)
+        {
+            Product prod = productRepository.Products.FirstOrDefault(p => p.Id == id);
+            if (prod != null)
+            {
+                return File(prod.ImageData,prod.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

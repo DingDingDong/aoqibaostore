@@ -1,0 +1,11 @@
+﻿@import url('mobile.css');
+/* Navgation bar*/
+.navbar-default .navbar-nav > li {
+    border-bottom: 1px solid #ddd;
+    margin-left: 0;
+}
+
+.navbar-collapse {
+    float: none;
+    max-height: none;
+}

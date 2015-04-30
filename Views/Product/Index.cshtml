@@ -20,7 +20,7 @@
                        <li class="four-per-row clearfix" style="height:291px;">
                            <div class="coll-image-wrap">
                                <a href="../Product/detail/@p.Id">
-                                   <img alt="@p.name" src="../Content/images/Product/@p.imgUrl" style="height:191px;" />
+                                   <img alt="@p.name" src="@Url.Action("GetImage","Product",new {@p.Id})" style="height:191px;" />
                                </a>
                            </div>
                            <div class="coll-prod-caption">

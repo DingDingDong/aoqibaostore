@@ -28,10 +28,9 @@
                           </div>
                       </li>
                   </ul>
-
                   <div id="product-photos">
                       <div id="product-photo-container">
-                          <img alt="@Model.name" src="/Content/images/Product/@Model.imgUrl"></div>
+                          <img alt="@Model.name" src="@Url.Action("GetImage","Product",new {Model.Id})"></div>
                   </div>
               </div>
             </div>

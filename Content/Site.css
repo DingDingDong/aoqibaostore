@@ -18,7 +18,7 @@ textarea {
 
 /* Header*/
 .navbar-brand {
-    background: url("http://giftpay.com//images/logo.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("images/aoqibaoLogo.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     display: block;
     height: 27px;
     margin-top: 16px;
@@ -31,7 +31,25 @@ textarea {
 }
 
 .navbar-header {
- width: 150px;
+ /*width: 150px; */
+ padding-bottom: "10px;"
+}
+
+
+navbar-default .navbar-nav > li > a {
+    color: #333;
+    display: block;
+    line-height: 36px;
+    padding: 0 10px;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+    color: #004a8c;
+    transition: background 0.3s ease 0s;
+}
+.navbar-default .navbar-nav > li.sign-up > a, .navbar-default .navbar-nav > li.login > a {
+    color: #fff;
+    padding: 0 25px;
 }
 
 

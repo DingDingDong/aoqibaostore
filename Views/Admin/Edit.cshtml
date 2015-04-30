@@ -1,0 +1,100 @@
+﻿@model AoqibaoStore.Models.Product
+@{
+    ViewBag.Title = "Admin:Edit" + @Model.name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/Scripts/Kindeditor/kindeditor-all-min.js"></script>
+<script src="~/Scripts/Kindeditor/lang/en.js"></script>
+<script src="~/Scripts/Kindeditor/plugins/code/prettify.js"></script>
+
+<script type="text/javascript">
+    KindEditor.ready(function (K) {
+        window.editor = K.create("#longDesc");
+    });
+</script>
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Edit @Model.name</h3>
+    </div>
+
+
+      @using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+      {
+        <div class="panel-body">
+            @Html.HiddenFor(m => m.Id)
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                if (property.PropertyName != "Id" && property.PropertyName != "imgUrl" && property.PropertyName != "ImageMimeType")
+                { 
+                    <div class="form-group">
+                        <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        @if (property.PropertyName == "shortDesc" || property.PropertyName == "longDesc")
+                        { 
+                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
+                        }
+                        else if (property.PropertyName == "cateId")
+                        {
+                            <select class="form-control" data-val="true" data-val-number="The field Cate must be a number." data-val-required="CateId 字段是必需的。" id="cateId" name="cateId">
+                                @foreach (var category in ViewData["Categories"]
+                                              as List<AoqibaoStore.Models.Category>)
+                                {
+                                    <option value="@category.Id" selected="@(Model.cateId == @category.Id)">@category.name</option>
+                                }
+                            </select>
+                        }
+                        else if (property.PropertyName == "status")
+                        {
+                            <select class="form-control" data-val="true" data-val-number="The field Status must be a number." data-val-required="Status 字段是必需的。" id="status" name="status">
+                                <option selected="@(Model.status == 1? true : false)" value="1">Active</option>
+                                <option selected="@(Model.status == 0? true : false)" value="0">Inactive</option>
+                            </select>
+                        }
+                        else if (property.PropertyName == "createDate" || property.PropertyName == "modifyDate")
+                        {
+                          @Html.TextBox(property.PropertyName, null, new { @class = "form-control", @readonly = true })
+                        }
+                        else if (property.PropertyName == "ImageData")
+                        {
+                            <div class="form-group">
+                                <div style="position:relative;">
+                                    <label>Image</label>
+                                    <a class="btn" href="javascript:;">
+                                        Choose File...
+                                        <input type="file" name="Image" size="40" style="position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);opacity:0
+                                        ;background-color:transparent;color:transparent;" onchange='$("#upload-file-info").html($(this).val());' />
+                                    </a>
+                                    <span class="label label-info" id="upload-file-info"></span> 
+                                </div>
+                                @if (Model.ImageData == null) { 
+                                    <div class="form-control-static">No Image</div>
+                                }
+                                else
+                                {
+                                    <img class="img-thumbnail" src="@Url.Action("GetImage","Product",new {Model.Id})" style="max-width:191px;height:191px;display:block" />
+                                }
+
+                            </div>
+                        }
+                        else
+                        {
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                        }
+                        @Html.ValidationMessage(property.PropertyName)
+                    </div>
+                }
+            }
+        </div>
+        
+        
+        <div class="panel-footer">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancel and return to List", "Index", null, new
+       {
+           @class = "btn btn-default"
+       })
+        </div>
+    }
+</div>
+
