@@ -8,6 +8,7 @@ using System;
 
 namespace AoqibaoStore.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IProductRepository repository;

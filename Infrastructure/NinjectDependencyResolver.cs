@@ -6,7 +6,8 @@ using System.Web.Mvc;
 using AoqibaoStore.Models;
 using AoqibaoStore.Abstract;
 using AoqibaoStore.Concrete;
-
+using AoqibaoStore.Infrastructure.Abstract;
+using AoqibaoStore.Infrastructure.Concrete;
 
 namespace AoqibaoStore.Infrastructure
 {
@@ -47,6 +48,8 @@ namespace AoqibaoStore.Infrastructure
 
             kernel.Bind<IContactProcessor>().To<EmailContactProcessor>().WithConstructorArgument("settings", emailSettings
                 );
+
+            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
             
         }
     }

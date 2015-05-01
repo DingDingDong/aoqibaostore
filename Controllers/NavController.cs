@@ -21,7 +21,8 @@ namespace AoqibaoStore.Controllers
             ViewBag.SelectedCategory = category;
 
             IEnumerable<string> categories = repository.Categories
-                                             .Select(x => x.name)
+                                             .Where(x=>x.status == 1)
+                                             .Select(x =>x.name)
                                              .Distinct();
             return PartialView("FlexMenu",categories);
                                          

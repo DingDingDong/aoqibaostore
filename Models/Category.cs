@@ -11,8 +11,14 @@ namespace AoqibaoStore.Models
     public class Category
     {
         public int Id { get; set; }
+
+        [Display(Name = "Category Name")]
+        [Required(ErrorMessage = "Please enter a category name")]
         public string name { get; set; }
+        [Display(Name = "Status")]
         public int status { get; set; }
+
+        [Display(Name = "Create Date")]
         public DateTime createDate { get; set; }
 
         [Display(Name = "Category Image")]

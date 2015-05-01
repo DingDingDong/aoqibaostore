@@ -1,50 +1,27 @@
-﻿@model AoqibaoStore.Models.Product
+﻿@model AoqibaoStore.Models.Category
 @{
-    ViewBag.Title = "Admin:Add Product";
+    ViewBag.Title = "Admin:Add Category";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<script src="~/Scripts/Kindeditor/kindeditor-all-min.js"></script>
-<script src="~/Scripts/Kindeditor/lang/en.js"></script>
-<script src="~/Scripts/Kindeditor/plugins/code/prettify.js"></script>
-
-<script type="text/javascript">
-    KindEditor.ready(function (K) {
-        window.editor = K.create("#longDesc");
-    });
-</script>
 
 
 <div class="panel">
     <div class="panel-heading">
-        <h3>Create product</h3>
+        <h3>Create Category</h3>
     </div>
 
 
-    @using (Html.BeginForm("Create", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Create", "AdminCategory", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div class="panel-body">
             @Html.HiddenFor(m => m.Id)
             @foreach (var property in ViewData.ModelMetadata.Properties)
             {
-                if (property.PropertyName != "Id" && property.PropertyName != "imgUrl" && property.PropertyName != "ImageMimeType" && property.PropertyName != "createDate" && property.PropertyName != "modifyDate")
+                if (property.PropertyName != "Id" && property.PropertyName != "ImageMimeType" && property.PropertyName != "createDate" && property.PropertyName != "modifyDate")
                 {
                     <div class="form-group">
                         <label>@(property.DisplayName ?? property.PropertyName)</label>
-                        @if (property.PropertyName == "shortDesc" || property.PropertyName == "longDesc")
-                        {
-                            @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
-                        }
-                        else if (property.PropertyName == "cateId")
-                        {
-                            <select class="form-control" data-val="true" data-val-number="The field Cate must be a number." data-val-required="CateId 字段是必需的。" id="cateId" name="cateId">
-                             @foreach (var category in ViewData["Categories"]
-                                              as List<AoqibaoStore.Models.Category>)
-                             {
-                                <option value="@category.Id">@category.name</option>
-                             }
-                            </select>
-                        }
-                        else if (property.PropertyName == "status")
+                        @if (property.PropertyName == "status")
                         {
                             <select class="form-control" data-val="true" data-val-number="The field Status must be a number." data-val-required="Status 字段是必需的。" id="status" name="status">
                                 <option value="1">Active</option>
@@ -63,15 +40,6 @@
                                     </a>
                                     <span class="label label-info" id="upload-file-info"></span>
                                 </div>
-                               @* @if (Model.ImageData == null)
-    {
-        <div class="form-control-static">No Image</div>
-    }
-    else
-    {
-        <img class="img-thumbnail" src="@Url.Action("GetImage","Product",new {Model.Id})" style="max-width:191px;height:191px;display:block" />
-    }
-                            *@
                             </div>
                         }
                         else

@@ -33,12 +33,12 @@ namespace AoqibaoStore.Controllers
 
          //   ViewData["Products"] = productRepository.Products.ToList();
 
-            Category selectedCategory = categoryRepository.Categories.Where(c => c.name == cateName).FirstOrDefault();
+            Category selectedCategory = categoryRepository.Categories.Where(c => c.name == cateName&& c.status == 1).FirstOrDefault();
             
             ProductListViewModel model = new ProductListViewModel
             {
                 Products = productRepository.Products
-                .Where(p => cateName == null || p.cateId == selectedCategory.Id)
+                .Where(p => cateName == null || p.cateId == selectedCategory.Id && p.status == 1)
                 .OrderBy(p => p.Id)
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize), PagingInfo = new PagingInfo{
@@ -66,7 +66,7 @@ namespace AoqibaoStore.Controllers
         [Route("detail/{id:int}")]
         public ViewResult Details(int id)
         {
-            Product selectedProduct = productRepository.Products.Where(p => p.Id == id).FirstOrDefault();
+            Product selectedProduct = productRepository.Products.Where(p => p.Id == id && p.status ==1).FirstOrDefault();
             return View(selectedProduct);
         }
 
