@@ -2,11 +2,13 @@
 
 @{
     ViewBag.Title = "Admin: Log In";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-<div class="panel">
+<div class="panel login">
     <div class="panel-body">
+        <h1>后台管理系统</h1>
+
         <p class="lead">Please log in to access the administration area:</p>
         <div class="row">
             <div class="col-sm-5">
@@ -18,8 +20,6 @@
                     <label>Password</label>
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                 </div>
-                 
-                
                 <input type="submit" value="Log in" class="btn btn-primary"/>
             }
         </div>

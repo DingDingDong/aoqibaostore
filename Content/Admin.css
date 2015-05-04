@@ -102,7 +102,7 @@
 
 
 /*Log in*/
-.btn {
+.login .btn {
     background: none repeat scroll 0 0 #f58220;
     border: medium none;
     border-radius: 0;
@@ -114,7 +114,7 @@
 }
 
 
-.btn:hover, .btn:focus {
+.login .btn:hover, .btn:focus {
     background: none repeat scroll 0 0 #ffa04f;
     color: #fff;
 }

@@ -24,6 +24,17 @@
                                </a>
                            </div>
                            <div class="coll-prod-caption">
+
+                               @using (Html.BeginForm("AddToCart", "Cart"))
+                               {
+                                <div class="coll-prod-buy styled-small-button">
+                                    @Html.Hidden("productId",p.Id)
+                                    @Html.Hidden("returnUrl",Request.Url.PathAndQuery)
+                                    <input type="submit" class="buy" value="购买" />
+                                </div>
+                               }
+                          
+
                               <div class="coll-prod-meta">
                                   <a class="coll-prod-meta" href="../Product/detail/@p.Id">
                                       @p.name
@@ -33,6 +44,7 @@
                                   </p>
                               </div>
                            </div>
+
                        </li>
                     }
                 </ul>

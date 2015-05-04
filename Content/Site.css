@@ -295,6 +295,40 @@ ol, ul {
     padding: 21px 0 14px;
 }
 
+.four-per-row .coll-prod-buy {
+    font-size: 13px;
+    margin-left: 5px;
+    padding: 5px 10px 6px;
+}
+
+.four-per-row .coll-prod-buy, .three-per-row .coll-prod-buy {
+    background-color: #f073c2;
+    color: #ffffff;
+    display: block;
+    float: right;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: center;
+}
+
+.styled-small-button {
+    background-color: #f073c2;
+    border: medium none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: 700;
+    outline: medium none;
+    position: relative;
+    z-index: 1;
+}
+
+.buy {
+  background: none;
+  border: none;
+  color: white;
+}
 
 /* About */
 .page-title {
