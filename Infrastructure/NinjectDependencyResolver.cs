@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using Ninject;
 using Moq;
 using System.Web.Mvc;
@@ -46,9 +47,13 @@ namespace AoqibaoStore.Infrastructure
 
             EmailSettings emailSettings = new EmailSettings { };
 
-            kernel.Bind<IContactProcessor>().To<EmailContactProcessor>().WithConstructorArgument("settings", emailSettings
-                );
+            kernel.Bind<IContactProcessor>().To<EmailContactProcessor>().WithConstructorArgument("settings", emailSettings);
 
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
+
+            kernel.Bind<IOrderRepository>().To<EFOrderRepository>();
+       
             kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
             
         }

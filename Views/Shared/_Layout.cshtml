@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GiftPay Store</title>
+    <title>Aoqibao Store</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/mobile.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="~/Scripts/jquery-1.9.0.min.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -23,6 +23,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="/"></a>
+                   
+                   
                 </div>
 
                 <div class="navbar-collapse collapse">
@@ -32,6 +34,9 @@
                         <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "About" ? "active" : "")"><a href="/About/">关于我们</a></li>
                         <li class="@(ViewContext.RouteData.Values["controller"].ToString() == "Contact" ? "active" : "")"><a href="/Contact/">联系我们</a></li>
                     </ul>
+                    <div style="float:right;">
+                        @Html.Action("Summary", "Cart")
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,7 +62,7 @@
         </footer>
     </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-1.9.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

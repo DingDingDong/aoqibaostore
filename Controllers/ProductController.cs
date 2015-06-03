@@ -38,13 +38,13 @@ namespace AoqibaoStore.Controllers
             ProductListViewModel model = new ProductListViewModel
             {
                 Products = productRepository.Products
-                .Where(p => cateName == null || p.cateId == selectedCategory.Id && p.status == 1)
+                .Where(p => cateName == null || p.categoryId == selectedCategory.Id && p.status == 1)
                 .OrderBy(p => p.Id)
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize), PagingInfo = new PagingInfo{
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = cateName == null ? productRepository.Products.Count() : productRepository.Products.Where(e => e.cateId == selectedCategory.Id).Count()
+                    TotalItems = cateName == null ? productRepository.Products.Count() : productRepository.Products.Where(e => e.categoryId == selectedCategory.Id).Count()
                 },
                 CurrentCategory = cateName
             };

@@ -4,8 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    #cartTable td {vertical-align: middle;}
+</style>
 <h2>Your cart</h2>
-<table class="table">
+<table class="table" id="cartTable">
     <thead>
         <tr>
             <th>Quantity</th>
@@ -23,6 +26,13 @@
                 <td class="text-right">
                     @((line.Quantity * line.Product.unitPrice).ToString("c"))
                 </td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart")) { 
+                        @Html.Hidden("ProductId",@line.Product.Id);
+                        @Html.HiddenFor(x => x.ReturnUrl);
+                        <input class="btn btn-sm btn-warning"  type="submit" value="Remove"/>
+                    }
+                </td>
             </tr>
         }
     </tbody>
@@ -38,4 +48,5 @@
 
 <div class="text-center">
     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+    @Html.ActionLink("Checkout now", "Checkout", null, new { @class = "btn btn-primary"})
 </div>

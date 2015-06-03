@@ -12,7 +12,7 @@ namespace AoqibaoStore.Models
         public int Id { get; set; }
 
         [Display(Name = "Category")]
-        public int cateId { get; set; }
+        public int categoryId { get; set; }
        
         [Display(Name="Product Name")]
         [Required(ErrorMessage= "Please enter a product name")]
@@ -56,7 +56,9 @@ namespace AoqibaoStore.Models
         public int status { get; set; }
 
 
-        
+
+
+        public virtual Category category { get; set; }
     }
 
 

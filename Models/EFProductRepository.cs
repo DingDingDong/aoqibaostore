@@ -27,7 +27,7 @@ namespace AoqibaoStore.Models
                 if (dbEntry != null)
                 {
                     dbEntry.name = product.name;
-                    dbEntry.cateId = product.cateId;
+                    dbEntry.categoryId = product.categoryId;
                     dbEntry.shortDesc = product.shortDesc;
                     dbEntry.longDesc = product.longDesc;
                     dbEntry.unitPrice = product.unitPrice;
